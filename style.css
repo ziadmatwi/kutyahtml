@@ -6,6 +6,7 @@
 body, html{
     min-height:100%;
     min-width:100%;
+    overflow:auto;
 }
 
 
@@ -13,9 +14,8 @@ body {
     background-image: url(hatter.jpg);
     background-size:auto;
     background-repeat: repeat;
-    display:block;
     background-position: center center; /* Centers the image both vertically and horizontally */
-    height: 100vh; /* Ensures the body height matches the viewport height */
+    
     margin: 0; /* Removes any default margin for the body element */
     padding-top:5pt;
     
@@ -23,8 +23,16 @@ body {
 
 .container {
     margin:auto;
-    width:66%;
-    
+    width:58%;
+    display:grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas:
+     "header header header"
+     "nav main main";
+}
+
+header {
+    grid-area: header;
 }
 
 .headerimage {
@@ -33,6 +41,9 @@ body {
     position: relative;
     overflow: hidden;
     margin:0;
+    background-image: url(images/fejlec.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
     
 }
 
@@ -51,5 +62,158 @@ body {
 }
 
 nav {
-    background-color:rgb(32, 49, 7);
+    background-color:rgb(123, 173, 48);
+    grid-area: nav;
+}
+
+nav ul{
+    margin:auto;
+    text-align: left;
+    padding-top: 10pt;
+    list-style: none;
+}
+nav ul li {
+    padding-top: 10pt;
+    font-size:12pt;
+    color:white;
+    list-style: none;
+    text-decoration: none;
+    
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+main {
+    background-color: white;
+    color: rgb(95, 25, 25);
+    clear: both;
+    grid-area: main;
+}
+
+
+article {
+    clear: both;
+    padding:10pt;
+}
+
+article h2 {
+    padding-bottom: 10pt;
+}
+
+.image-left {
+    float:left;
+}
+
+.image-right {
+    float:right;
+}
+
+.image-size {
+    height:200px;
+    margin-right: 10pt;
+}
+
+
+.clear {
+    clear:both;
+}
+
+/*foxterrier css */
+
+
+.foxterrierarticle {
+    color:black;
+}
+.foxterrierarticle h1 {
+    padding-top: 5pt;
+    padding-bottom: 15pt;
+    letter-spacing: 2pt;
+}
+.foxterrierarticle h2 {
+    padding-top: 15pt;
+    padding-bottom: 15pt;
+    font-size: 15pt;
+}
+
+.foxterrierarticle ul {
+    padding-bottom: 25pt;
+    list-style: square;
+}
+.green {
+    color:green;
+}
+
+.brown {
+    color:brown
+}
+
+.jellemzői {
+    padding-top:2pt;
+    padding-left: 10pt;
+    border-top: 1pt dotted;
+    border-bottom:1pt dotted;
+    padding-bottom: 25pt;
+}
+
+.tulajdonságai {
+    padding-left: 10pt;
+    height: 200pt;
+}
+
+/* kutyakora css */
+
+table {
+    
+    border-collapse:collapse;
+    margin:auto;
+    width: 90%;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 14pt;
+    
+}
+table th {
+    font-size: 18pt;
+}
+
+table h2 {
+    margin:auto;
+    padding-bottom: 15pt;
+}
+.kutyakoratablazat h2 {
+    margin:auto;
+}
+table td {
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+}
+
+.secondrow{
+    background-color: lightgray;
+}
+
+.placeholder {
+    height: 300pt;
+}
+
+@media all and (max-width: 800px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "header"
+        "nav"
+        "main";
+    }
+    .image-size {
+        height: 100px;
+    }
+
+    .headerimage h1{
+        text-align: center;
+    }
+
 }
